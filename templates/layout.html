@@ -5,29 +5,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-  <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/png" sizes="24x24"> 
+  <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/png" sizes="24x24">
+  <script src="{{ url_for('static', filename='main.js') }}" defer></script>
   {% block header %} {% endblock %}
 </head>
 
 <body>
-  
+
   <div id="wrapper">
-  
-    <aside>
+
+    <aside id="side">
+      <img id="close" src="{{ url_for('static', filename='closeicon.png') }}">
       <ul>
         {% for bookpage in bookpages %}
-        <a href="{{ websiteUrl }}/bookpage/{{bookpage[2]}}"><li> {{ bookpage[0] }}</li></a>
+        <a href="{{ websiteUrl }}/bookpage/{{bookpage[2]}}">
+          <li> {{ bookpage[0] }}</li>
+        </a>
         {% endfor %}
       </ul>
-      
-      <footer>    
+
+      <footer>
         <p>مُشغّل بواسطة <a href="https://github.com/mhsabbagh/mujallad">سكربت مجلّد</a></p>
       </footer>
     </aside>
 
     <div id="mainbody">
       <header>
-        <a href="{{ websiteUrl }}"><h1>{{websiteName}}</h1></a>
+        <img id="drop-menu" src="{{ url_for('static', filename='dropdownicon.png') }}">
+        <a href="{{ websiteUrl }}">
+          <h1>{{websiteName}}</h1>
+        </a>
         <h2>{{websiteDesc}}</h2>
       </header>
       <article>
@@ -36,7 +43,7 @@
     </div>
 
 
-    </div>
+  </div>
 
 
 </body>

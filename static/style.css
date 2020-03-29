@@ -3,11 +3,18 @@
   src: url("font.ttf");
   font-weight: normal;
 }
+
 @font-face {
   font-family: Ubuntu;
   src: url("ubuntu.ttf");
   unicode-range: U+0020-007F;
 }
+@font-face {
+  font-family: Hanimation;
+  src: url("hanimation-regular.ttf");
+  unicode-range: U+0020-007F;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -16,27 +23,32 @@ body {
   font-weight: 400;
   transition-duration: 0.5s ease;
   direction: rtl;
-  font-family: Ubuntu, DroidNaksh;
+  font-family: Hanimation, DroidNaksh;
   overflow-x: hidden;
   overflow-y: hidden;
   background: #f0f0f0;
 }
+
 header {
   text-align: center;
   padding-bottom: 2.5vh;
 }
+
 header h1 {
   font-size: 26px;
   line-height: 28px;
 }
+
 header h2 {
   color: #555;
   font-size: 14px;
   line-height: 15px;
 }
+
 #wrapper {
   display: flex;
 }
+
 aside {
   background: #001f3f;
   width: 25vw;
@@ -44,30 +56,37 @@ aside {
   overflow-y: scroll;
   margin-left: 2.5%;
 }
+
 aside ul:before {
   content: "جدول المحتويات";
   color: #fff;
   font-weight: bold;
   font-size: 20px;
 }
+
 aside ul {
-  list-style: none; 
+  list-style: none;
 }
+
 aside ul li {
   display: table;
   margin: 5px;
   padding: 5px;
   transition-duration: 0.3s;
 }
+
 aside ul li:hover {
   background: #0074D9;
 }
+
 aside ul a {
   color: #f9f9f9;
 }
+
 #mainbody a {
   color: #0074D9;
 }
+
 article {
   text-align: justify;
   width: 70vw;
@@ -75,30 +94,37 @@ article {
   padding-left: 5vw;
   overflow-y: auto;
 }
+
 article a {
   transition-duration: 0.3s;
 }
+
 article a:hover {
-	background: #0074D9;
-	color: #fff !important;
+  background: #0074D9;
+  color: #fff !important;
 }
+
 footer {
   color: #f9f9f9;
   text-align: center;
   padding-top: 2.5vh;
 }
+
 footer a {
   color: #f9f9f9;
   text-decoration: underline;
 }
+
 a {
   text-decoration: none;
 }
+
 img {
   max-width: 100%;
   display: flex;
   margin: 0 auto;
 }
+
 pre {
   font-family: "Ubuntu";
   text-align: left;
@@ -107,6 +133,7 @@ pre {
   padding: 20px;
   color: #fff;
 }
+
 table {
   border-spacing: 0px;
   border-collapse: collapse;
@@ -116,24 +143,73 @@ table {
   background-color: transparent;
   text-align: left;
 }
+
 th {
   font-weight: bold;
   border: 1px solid #cccccc;
   padding: 8px;
 }
+
 td {
   border: 1px solid #cccccc;
   padding: 8px;
 }
+
 tr th {
   background-color: #dddddd;
 }
+
 tr {
   background-color: transparent;
   border-top: 1px solid #cccccc;
   border-bottom: 1px solid #cccccc;
 }
-th, td {
+
+th,
+td {
   border: none;
 }
 
+/* Layout for mobile */
+#drop-menu,
+#close {
+  display: none;
+}
+.showAlwasy{
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  aside{
+    display: none;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+  }
+  #drop-menu {
+    display: block;
+    position: absolute;
+    width: 45px;
+  }
+
+  #close {
+    display: block;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 30px;
+  }
+
+  article {
+    width: 100%;
+  }
+
+  #wrapper {
+    margin-left: 3vw;
+    margin-right: 3vw;
+  }
+
+}
